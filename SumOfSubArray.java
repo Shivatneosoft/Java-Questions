@@ -6,7 +6,7 @@ public class SumOfSubArray {
         int target = -3;
 
         solutionUsingTwoForLoop(num,target);
-        solutionUsingWhileLoop(num,target);
+//        solutionUsingWhileLoop(num,target);
     }
 
     private static void solutionUsingWhileLoop(int[] num, int target) {
@@ -18,8 +18,10 @@ public class SumOfSubArray {
             }
             int[] subArrays = Arrays.copyOfRange(num, start, end);
             int sum = Arrays.stream(subArrays).sum();
-            if(sum == target)
+            if(sum == target){
                 System.out.println(Arrays.toString(subArrays));
+                return;
+            }
             end --;
         }
     }
@@ -29,8 +31,10 @@ public class SumOfSubArray {
             for (int j = i+1; j < num.length+1; j++) {
                 int[] subArray = Arrays.copyOfRange(num, i, j);
                 int sum = Arrays.stream(subArray).sum();
-                if(sum == target)
+                if(sum == target) {
                     System.out.println(Arrays.toString(subArray));
+                    return;
+                }
             }
         }
     }
